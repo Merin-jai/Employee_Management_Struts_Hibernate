@@ -21,6 +21,17 @@
         <action name="deleteEmployee" class="com.employee.action.EmployeeAction" method="delete">
             <result name="success">listEmployees</result>
         </action>
+        
+         <!-- List Employees -->
+        <action name="listEmployees" class="com.employee.action.EmployeeAction" method="list">
+            <result name="success">/listEmployees.jsp</result>
+        </action>
+
+        <!-- Add Employee -->
+        <action name="addEmployee" class="com.employee.action.EmployeeAction" method="add">
+            <result name="input">/addEmployee.jsp</result>
+            <result name="success">listEmployees</result>
+        </action>
 
     </package>
 </struts>
