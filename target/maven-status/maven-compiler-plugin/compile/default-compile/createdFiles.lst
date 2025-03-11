@@ -1,0 +1,6 @@
+com\employee\util\HibernateUtil.class
+com\employee\model\Employee.class
+com\employee\action\EmployeeAction.class
+com\employee\dao\EmployeeDAO.class
+com\employee\test\TestHibernate.class
+com\employee\test\TestEmployeeDAO.class

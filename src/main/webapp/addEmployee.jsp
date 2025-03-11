@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +8,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Add Employee</h2>
-    <s:form action="addEmployee" method="post">
-        Name: <s:textfield name="employee.name" required="true"/><br/>
-        Email: <s:textfield name="employee.email" required="true"/><br/>
-        Salary: <s:textfield name="employee.salary" required="true"/><br/>
-        Designation: <s:textfield name="employee.designation" required="true"/><br/>
-        <s:submit value="Add Employee"/>
-    </s:form>
+    <h1>Add Employee</h1>
+    <form action="<s:url action='addEmployee'/>" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="employee.name" value="<s:property value='employee.name'/>" required />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" name="employee.email" value="<s:property value='employee.email'/>" required />
+        <br />
+        <label for="designation">Designation:</label>
+        <input type="text" name="employee.designation" value="<s:property value='employee.designation'/>" required />
+        <br />
+        <label for="salary">Salary:</label>
+        <input type="number" name="employee.salary" value="<s:property value='employee.salary'/>" required />
+        <br />
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

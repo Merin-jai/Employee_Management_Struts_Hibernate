@@ -5,32 +5,26 @@
 <struts>
     <package name="default" namespace="/" extends="struts-default">
 
-        <action name="listEmployees" class="com.employee.action.EmployeeAction" method="list">
-            <result name="success">/listEmployees.jsp</result>
-        </action>
-
-        <action name="addEmployee" class="com.employee.action.EmployeeAction" method="add">
-            <result name="input">/addEmployee.jsp</result>
-            <result name="success">listEmployees</result>
-        </action>
-
-        <action name="updateEmployee" class="com.employee.action.EmployeeAction" method="update">
-            <result name="success">listEmployees</result>
-        </action>
-
-        <action name="deleteEmployee" class="com.employee.action.EmployeeAction" method="delete">
-            <result name="success">listEmployees</result>
-        </action>
-        
-         <!-- List Employees -->
+        <!-- List Employees -->
         <action name="listEmployees" class="com.employee.action.EmployeeAction" method="list">
             <result name="success">/listEmployees.jsp</result>
         </action>
 
         <!-- Add Employee -->
         <action name="addEmployee" class="com.employee.action.EmployeeAction" method="add">
-            <result name="input">/addEmployee.jsp</result>
-            <result name="success">listEmployees</result>
+            <result name="input">/addEmployee.jsp</result>  <!-- If validation fails, go back to the form -->
+            <result name="success">listEmployees</result>   <!-- On success, show the employee list -->
+            <result name="error">/addEmployee.jsp</result>  <!-- If there is any error, show the form again -->
+        </action>
+
+        <!-- Update Employee -->
+        <action name="updateEmployee" class="com.employee.action.EmployeeAction" method="update">
+            <result name="success">listEmployees</result>   <!-- On success, show the employee list -->
+        </action>
+
+        <!-- Delete Employee -->
+        <action name="deleteEmployee" class="com.employee.action.EmployeeAction" method="delete">
+            <result name="success">listEmployees</result>   <!-- After deletion, show the employee list -->
         </action>
 
     </package>

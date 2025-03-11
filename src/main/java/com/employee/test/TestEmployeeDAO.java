@@ -9,8 +9,8 @@ public class TestEmployeeDAO {
 
         // Create a new Employee
         Employee emp = new Employee();
-        emp.setName("John Doe");
-        emp.setEmail("john.doe@example.com");
+        emp.setName("Abey");
+        emp.setEmail("Abey@example.com");
         emp.setSalary(50000);
         emp.setDesignation("Software Engineer");
 

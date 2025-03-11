@@ -36,4 +36,54 @@ public class EmployeeDAO {
             return session.createQuery("FROM Employee", Employee.class).list();
         }
     }
+
+    public void updateEmployee(Employee employee) {
+        Transaction transaction = null;
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            
+            // Update Employee
+            session.update(employee);
+            
+            // Commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback(); // Rollback on error
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close(); // Ensure session is closed
+            }
+        }
+    }
+
+    public void deleteEmployee(Employee employee) {
+        Transaction transaction = null;
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            
+            // Delete Employee
+            session.delete(employee);
+            
+            // Commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback(); // Rollback on error
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close(); // Ensure session is closed
+            }
+        }
+    }
+
+    public Employee getEmployeeById(int id) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.get(Employee.class, id); // Retrieves an Employee by ID
+        }
+    }
 }

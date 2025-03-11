@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validators>
+    <field name="employee.name">
+        <field-validator type="required">
+            <message>Employee name is required</message>
+        </field-validator>
+    </field>
+    <field name="employee.email">
+        <field-validator type="required">
+            <message>Email is required</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Invalid email format</message>
+        </field-validator>
+        <field-validator type="custom">
+            <validator-class>com.employee.validator.EmailValidator</validator-class>
+            <message>Email already exists</message>
+        </field-validator>
+    </field>
+    <field name="employee.salary">
+        <field-validator type="required">
+            <message>Salary is required</message>
+        </field-validator>
+        <field-validator type="long">
+            <message>Salary must be a valid number</message>
+        </field-validator>
+        <field-validator type="greaterThan">
+            <value>0</value>
+            <message>Salary must be greater than zero</message>
+        </field-validator>
+    </field>
+
+</validators>
+
